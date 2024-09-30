@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: big-star-collectibles-436910  # Your BigQuery project name
+    schema: raw_data  # The dataset where your tables are located
+    freshness:
+      warn_after:
+        count: 24
+        period: hour
+    loaded_at_field: "_airbyte_extracted_at"
+    tables:
+      - name: customers
+      - name: orders
+      - name: products
+      - name: order_items
